@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaPlay, FaPause, FaForward, FaBackward, FaVolumeUp } from 'react-icons/fa';
+import { FaPlay, FaPause, FaForward, FaBackward, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
 interface Song {
     id: number;
@@ -25,7 +25,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ currentSong, songsList, setCu
     useEffect(() => {
         if (song) {
             song.pause();
-            song.currentTime = 0;
+            song.currentTime = 0; // Reset only when switching songs
         }
 
         const newSong = new Audio(songsList[currentSong].src);
@@ -109,6 +109,24 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ currentSong, songsList, setCu
                 <button onClick={() => setCurrentSong(prev => (prev + 1) % songsList.length)} className="control-btn next-btn">
                     <FaForward />
                 </button>
+
+                {/* Volume Control */}
+                <div className="volume-control">
+                    <button onClick={() => setShowVolumeSlider(prev => !prev)} className="control-btn volume-btn">
+                        {volume > 0 ? <FaVolumeUp /> : <FaVolumeMute />}
+                    </button>
+                    {showVolumeSlider && (
+                        <input
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value={volume}
+                            onChange={handleVolumeChange}
+                            className="volume-slider"
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );

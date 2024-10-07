@@ -60,6 +60,14 @@ body {
     @apply bg-white bg-opacity-10;
 }
 
+.volume-control {
+    @apply flex items-center ml-2; /* Ajuste o espaço ao lado do botão de volume */
+}
+
+.volume-slider {
+    @apply ml-2 w-24;
+}
+
 .sidebar {
     @apply w-72 bg-[#20292E] p-5 fixed left-0 top-0 h-full overflow-y-auto;
 }
