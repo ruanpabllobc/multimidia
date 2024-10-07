@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @apply bg-[#0F1316] h-screen flex justify-center items-center font-sans;
+}
+
+.container {
+    @apply relative w-96 bg-[#20292E] p-16 rounded-2xl flex flex-col justify-center items-center;
+}
+
+.container .disk {
+    @apply w-52 h-52 flex justify-center items-center relative mb-5;
+}
+
+.container .disk .cover {
+    @apply w-full h-full bg-cover bg-center border-4 border-[#EAEFF2] rounded-full shadow-md transition-all;
+}
+
+.container .song-info {
+    @apply text-center text-[#EAEFF2] mb-5;
+}
+
+.container .progress-bar {
+    @apply w-full bg-[#192024] rounded-full cursor-pointer h-1.5 relative mb-1;
+}
+
+.container .progress-bar .fill-bar {
+    @apply w-0 h-full rounded-full bg-[#DF2F31] transition-all;
+}
+
+.container .song-time {
+    @apply flex justify-between text-sm text-[#6C7F89] w-full mb-5;
+}
+
+.container .controls {
+    @apply flex items-center justify-center gap-10;
+}
+
+.control-btn {
+    @apply cursor-pointer text-white transition-colors p-2.5 rounded-full flex justify-center items-center;
+}
+
+.play-btn {
+    @apply bg-[#DF2F31];
+}
+
+.play-btn:hover {
+    @apply bg-[#8E312D];
+}
+
+.previous-btn:hover, .next-btn:hover {
+    @apply bg-white bg-opacity-10;
+}
+
+.sidebar {
+    @apply w-72 bg-[#20292E] p-5 fixed left-0 top-0 h-full overflow-y-auto;
+}
+
+.sidebar h3 {
+    @apply text-xl mb-4 text-[#EAEFF2];
+}
+
+#playlist {
+    @apply list-none p-0;
+}
+
+#playlist li {
+    @apply p-2.5 mb-2.5 rounded text-[#EAEFF2] cursor-pointer transition-colors flex flex-col items-start;
+}
+
+#playlist li:hover {
+    @apply bg-[#192024];
+}
+
+#playlist li.active {
+    @apply bg-[#DF2F31];
+}
+
+.song-name {
+    @apply font-bold text-lg;
+}
+
+.song-artist {
+    @apply text-base text-[#EAEFF2];
+}
